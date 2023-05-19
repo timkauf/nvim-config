@@ -31,5 +31,5 @@ require("nvim-tree").setup({
 })
 
 -- Keymaps
-vim.keymap.set('n', '<leader>tf', [[:NvimTreeFindFileToggle]])
-vim.keymap.set('n', '<leader>tc', [[:NvimTreeCollapse]])
+vim.keymap.set('n', '<leader>tf', [[:NvimTreeFindFileToggle<CR>]])
+vim.keymap.set('n', '<leader>tc', [[:NvimTreeCollapse<CR>]])

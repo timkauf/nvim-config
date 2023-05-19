@@ -28,8 +28,8 @@ map('v', ':', ';')
 
 -- BUFFERS
 map('n', '<leader>b', '<C-6>') --toggle
-map('n', '<C-b>', ':bnext<CR>')
-map('n', '<C-S-b>', ':bprev<CR>')
+-- map('n', '<leader>bn', ':bnext<CR>')
+-- map('n', '<leader>bp', ':bprev<CR>')
 
 -- WINDOWS
 map('n', '<leader>w', '<C-w>w')

@@ -53,4 +53,4 @@ vim.keymap.set('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').lsp_do
 vim.keymap.set('n', '<leader>fc', [[<cmd>lua require('telescope.builtin').commands()<CR>]])
 -- telescope-file-browser
 -- vim.keymap.set('n', '<leader>fe', [[<cmd>lua require('telescope').extensions.file_browser.file_browser<CR>]])
-vim.api.nvim_set_keymap("n", "<space>fe", ":Telescope file_browser<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fe", ":Telescope file_browser<CR>", { noremap = true })

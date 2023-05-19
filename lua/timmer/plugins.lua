@@ -19,11 +19,13 @@ require('packer').startup(function(use)
     -- Color schemes
     use {
         -- 'ellisonleao/gruvbox.nvim'
-        -- 'phha/zenburn.nvim',
-        'folke/tokyonight.nvim',
+        'phha/zenburn.nvim',
+        -- 'folke/tokyonight.nvim',
         config = function()
-            vim.cmd [[colorscheme tokyonight-storm]]
-            require('tokyonight').setup()
+            vim.cmd [[colorscheme zenburn]]
+            -- vim.cmd [[colorscheme tokyonight-storm]]
+            require('zenburn').setup()
+            -- require('tokyonight').setup()
             require('timmer.config.custom_color_opts')
         end
     }

@@ -26,7 +26,12 @@ require("nvim-tree").setup({
         ignore_list = {},
     },
     filters = {
-        -- dotfiles = true,
+        dotfiles = false,
+    },
+    git = {
+      enable = true,
+      ignore = false,
+      timeout = 500,
     },
 })
 

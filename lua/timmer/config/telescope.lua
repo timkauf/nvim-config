@@ -48,9 +48,11 @@ vim.keymap.set('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_f
 vim.keymap.set('n', '<leader>fa', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]])
 vim.keymap.set('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set('n', '<leader>fg', [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>]])
-vim.keymap.set('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
+vim.keymap.set('n', '<leader>fr', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
 vim.keymap.set('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
 vim.keymap.set('n', '<leader>fc', [[<cmd>lua require('telescope.builtin').commands()<CR>]])
+vim.keymap.set('n', '<leader>fk', [[<cmd>lua require('telescope.builtin').keymaps()<CR>]])
+vim.keymap.set('n', '<leader>cs', [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]])
 -- telescope-file-browser
 -- vim.keymap.set('n', '<leader>fe', [[<cmd>lua require('telescope').extensions.file_browser.file_browser<CR>]])
 vim.api.nvim_set_keymap("n", "<leader>fe", ":Telescope file_browser<CR>", { noremap = true })

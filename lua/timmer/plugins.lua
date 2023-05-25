@@ -18,9 +18,9 @@ require('packer').startup(function(use)
 
     -- Color schemes
     use {
-        -- 'ellisonleao/gruvbox.nvim'
-        'phha/zenburn.nvim',
+        -- 'ellisonleao/gruvbox.nvim',
         -- 'folke/tokyonight.nvim',
+        'phha/zenburn.nvim',
         config = function()
             vim.cmd [[colorscheme zenburn]]
             -- vim.cmd [[colorscheme tokyonight-storm]]
@@ -138,7 +138,7 @@ require('packer').startup(function(use)
 
     use {
         'VonHeikemen/lsp-zero.nvim',
-        -- branch = 'v1.x',
+        -- branch = 'v2.x',
         requires = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required

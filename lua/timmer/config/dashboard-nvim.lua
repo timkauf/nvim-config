@@ -1,18 +1,31 @@
 require('dashboard').setup {
     theme = 'hyper',
-    config = {},
-    hide = {
-      statusline,
-      tabline,
-      winbar,
+    config = {
+        header = {
+         ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+         ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+         ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+         ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+         ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+         ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+        },
+        -- center = {},
+        -- shortcut = {},
+        -- footer = {},
     },
-    preview = {
-      command,
-      file_path,
-      file_height,
-      file_width,
-    },
+    -- hide = {
+    --   statusline = true,
+    --   tabline = true,
+    --   winbar = true,
+    -- },
+    -- preview = {
+    --   command,
+    --   file_path,
+    --   file_height,
+    --   file_width,
+    -- },
 }
+
 
 -- Key mappings
 vim.keymap.set('n', '<Leader>db', ':Dashboard<CR>)')

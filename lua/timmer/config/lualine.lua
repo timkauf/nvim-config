@@ -1,13 +1,22 @@
 require('lualine').setup({
   options = {
     icons_enabled = true,
-    theme = "auto",
+    -- theme = 'auto',
+    theme = 'zenburn',
     -- component_separators = { left = '', right = ''},
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     symbols = {
-        modified =  '',
-        readonly = '',
+        -- modified =  ' ',
+        -- readonly = ' ',
+        -- error = 'E', 
+        -- warn = 'W',
+        -- info = 'I', 
+        -- hint = 'H'
+        error = ' ',
+        warn = ' ',
+        info = ' ',
+        hint = ' ',
     },
     disabled_filetypes = {
       statusline = {},
@@ -27,7 +36,13 @@ require('lualine').setup({
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {
         {'filetype', icon_only = true},
-        'filename',
+        {
+            'filename',
+            symbols = {
+                modified =  ' ',
+                readonly = ' ',
+            }
+        },
     },
     lualine_x = {'fileformat', 'encoding', 'filetype'},
     lualine_y = {'progress'},

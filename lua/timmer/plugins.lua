@@ -23,7 +23,7 @@ require('packer').startup(function(use)
         'phha/zenburn.nvim',
         config = function()
             vim.cmd [[colorscheme zenburn]]
-            -- vim.cmd [[colorscheme tokyonight-storm]]
+            -- vim.cmd [[colorscheme tokyonight-day]]
             require('zenburn').setup()
             -- require('tokyonight').setup()
             require('timmer.config.custom_color_opts')
@@ -180,16 +180,14 @@ require('packer').startup(function(use)
             require('timmer.config.lspconfig')
         end
     })
-]]
 
---[[
     use {
         'stevearc/aerial.nvim',
+        requires = {'nvim-tree/nvim-web-devicons'},
         config = function() 
             require('timmer.config.aerial')
         end
     }
-]]
 
     use {
         'abecodes/tabout.nvim',
@@ -199,7 +197,7 @@ require('packer').startup(function(use)
         ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
         exclude = {} -- tabout will ignore these filetypes
     }
-
+]]
 
     if packer_bootstrap then
         require('packer').sync()

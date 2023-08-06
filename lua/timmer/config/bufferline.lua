@@ -26,7 +26,7 @@ require('bufferline').setup({
         --         return {
         --             {
         --                 text = '    ',
-        --                 fg = '#8fff6d',
+        --                 -- fg = '#8fff6d',
         --             },
         --         }
         --     end,

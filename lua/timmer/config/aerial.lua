@@ -1,4 +1,5 @@
 require('aerial').setup({
+    nerd_font = "auto",
     -- optionally use on_attach to set keymaps when aerial has attached to a buffer
     on_attach = function(bufnr)
         -- Jump forwards/backwards with '{' and '}'

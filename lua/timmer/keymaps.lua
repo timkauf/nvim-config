@@ -1,11 +1,13 @@
-function map(mode, lhs, rhs, opts)
+function map(mode, key, result, opts)
     local options = { noremap = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    vim.api.nvim_set_keymap(mode, key, result, options)
 end
 
+--Source config
+map('n', '<leader>sv', ':source $MYVIMRC')
 
 -- MOTIONS
 -- Move lines down/up
@@ -50,7 +52,7 @@ map("v", ">", ">gv")
 
 -- SEARCH
 -- Search/replace - put something in search buffer (using *, /, etc) before triggering
-map('n', '<leader>s', ':%s///g<left><left>')
+map('n', '<leader>sr', ':%s///g<left><left>')
 -- Keep search matches in middle of window
 map('n', 'n',  'nzzzv')
 map('n', 'N',  'Nzzzv')

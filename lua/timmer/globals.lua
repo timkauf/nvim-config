@@ -5,7 +5,7 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 -- Leader
-g.mapleader = ","
+g.mapleader = " "
 -- g.maplocalleader = " "
 -- g.localleader = "\\"
 

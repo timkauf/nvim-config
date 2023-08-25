@@ -19,13 +19,13 @@ require('packer').startup(function(use)
     -- Color schemes
     use {
         -- 'ellisonleao/gruvbox.nvim',
-        -- 'folke/tokyonight.nvim',
-        'phha/zenburn.nvim',
+        'folke/tokyonight.nvim',
+        -- 'phha/zenburn.nvim',
         config = function()
-            vim.cmd [[colorscheme zenburn]]
-            -- vim.cmd [[colorscheme tokyonight-day]]
-            require('zenburn').setup()
-            -- require('tokyonight').setup()
+            -- vim.cmd [[colorscheme zenburn]]
+            vim.cmd [[colorscheme tokyonight-day]]
+            -- require('zenburn').setup()
+            require('tokyonight').setup()
             require('timmer.config.custom_color_opts')
         end
     }
@@ -48,6 +48,7 @@ require('packer').startup(function(use)
 
     use {
         'nvim-lualine/lualine.nvim',
+        commit = 'afece9bbf960f908cbaffebaa4b5a0506e9dc8ed',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function()
             require('timmer.config.lualine')
@@ -124,6 +125,7 @@ require('packer').startup(function(use)
 
     use {
         'nvim-treesitter/nvim-treesitter',
+        tag = 'v0.9.1',
         run = function()
             require('nvim-treesitter.install').update({with_sync = true})
         end,

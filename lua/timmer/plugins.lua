@@ -171,6 +171,15 @@ require('packer').startup(function(use)
         end
     }
 
+    use {
+        'abecodes/tabout.nvim',
+        config = function()
+            require('timmer.config.tabout')
+        end,
+        ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
+        exclude = {} -- tabout will ignore these filetypes
+    }
+
 --[[
     use ({
         'neovim/nvim-lspconfig',
@@ -189,15 +198,6 @@ require('packer').startup(function(use)
         config = function() 
             require('timmer.config.aerial')
         end
-    }
-
-    use {
-        'abecodes/tabout.nvim',
-        config = function()
-            require('timmer.config.tabout')
-        end,
-        ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
-        exclude = {} -- tabout will ignore these filetypes
     }
 ]]
 

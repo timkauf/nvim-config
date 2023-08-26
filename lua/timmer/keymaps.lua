@@ -29,9 +29,9 @@ map('v', ';', ':')
 map('v', ':', ';')
 
 -- BUFFERS
-map('n', '<leader>bb', '<C-6>') --toggle
-map('n', '<leader>bn', ':bnext<CR>')
-map('n', '<leader>bp', ':bprev<CR>')
+map('n', '<leader>b', '<C-6>') --toggle
+map('n', '<leader>n', ':bnext<CR>')
+map('n', '<leader>p', ':bprev<CR>')
 
 -- WINDOWS
 map('n', '<leader>w', '<C-w>w')
@@ -61,6 +61,11 @@ map('n', 'N',  'Nzzzv')
 -- Copy to Mac clipboard
 map('n', '<leader>y', '"*y')
 map('v', '<leader>y', '"*y')
+
+-- BUILT-IN TERMINAL
+map('n', '<leader>t', ':terminal<CR>')
+-- Escape to normal mode
+map('t', 'jj', [[<C-\><C-n>]])
 
 -- TERMINAL COMMANDS
 -- Open current file in default Mac app

@@ -6,7 +6,7 @@ require('gitsigns').setup({
         topdelete = {text = '➤'},
         changedelete = {text = '▎'},
     },
-    -- current_line_blame = true,
+    current_line_blame = true,
 })
 
 --Keymaps

@@ -18,24 +18,22 @@ require('packer').startup(function(use)
 
     -- Color schemes
     use {
+        -- 'folke/tokyonight.nvim',
         -- 'ellisonleao/gruvbox.nvim',
-        'folke/tokyonight.nvim',
+        'catppuccin/nvim',
         -- 'phha/zenburn.nvim',
-        config = function()
-            -- vim.cmd [[colorscheme zenburn]]
-            vim.cmd [[colorscheme tokyonight-day]]
-            -- require('zenburn').setup()
-            require('tokyonight').setup()
-            require('timmer.config.custom_color_opts')
-        end
-    }
 
-    use {
-        'glepnir/dashboard-nvim',
-        event = 'VimEnter',
-        requires = {'nvim-tree/nvim-web-devicons'},
         config = function()
-            require('timmer.config.dashboard-nvim')
+            -- vim.cmd [[colorscheme tokyonight]]
+            -- vim.cmd [[colorscheme tokyonight-day]]
+
+            -- vim.cmd [[colorscheme gruvbox]]
+
+            -- vim.cmd [[colorscheme catppuccin]]
+            vim.cmd [[colorscheme catppuccin-latte]]
+
+            -- vim.cmd [[colorscheme zenburn]]
+            -- require('timmer.config.color_zenburn')
         end
     }
 
@@ -67,16 +65,6 @@ require('packer').startup(function(use)
     -- Delete buffers without messing up window layout
     -- Use :Bdelete instead of :bdelete
     use 'famiu/bufdelete.nvim'
-
-    -- Display buffers as tabs
-    use {
-        'akinsho/bufferline.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function()
-            require('timmer.config.bufferline')
-            -- require('bufferline').setup()
-        end
-    }
 
     use {
         'kylechui/nvim-surround',
@@ -171,6 +159,17 @@ require('packer').startup(function(use)
         end
     }
 
+--[[
+    -- Display buffers as tabs
+    use {
+        'akinsho/bufferline.nvim',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            require('timmer.config.bufferline')
+            -- require('bufferline').setup()
+        end
+    }
+
     use {
         'abecodes/tabout.nvim',
         config = function()
@@ -180,7 +179,15 @@ require('packer').startup(function(use)
         exclude = {} -- tabout will ignore these filetypes
     }
 
---[[
+    use {
+        'glepnir/dashboard-nvim',
+        event = 'VimEnter',
+        requires = {'nvim-tree/nvim-web-devicons'},
+        config = function()
+            require('timmer.config.dashboard-nvim')
+        end
+    }
+
     use ({
         'neovim/nvim-lspconfig',
         requires = {

@@ -1,23 +1,20 @@
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
 
-
-require('packer').startup(function(use)
-
-    use 'wbthomason/packer.nvim'
-
+require('lazy').setup({
     -- Color schemes
-    use {
+    {
         'folke/tokyonight.nvim',
         -- 'catppuccin/nvim',
         -- 'EdenEast/nightfox.nvim',
@@ -26,9 +23,8 @@ require('packer').startup(function(use)
         -- 'ellisonleao/gruvbox.nvim',
 
         config = function()
-
-            -- vim.cmd [[colorscheme tokyonight]]
-            vim.cmd [[colorscheme tokyonight-day]]
+            vim.cmd [[colorscheme tokyonight]]
+            -- vim.cmd [[colorscheme tokyonight-day]]
 
             -- vim.cmd [[colorscheme catppuccin]]
             -- vim.cmd [[colorscheme catppuccin-frappe]]
@@ -45,108 +41,110 @@ require('packer').startup(function(use)
             -- vim.cmd [[colorscheme everforest]]
             -- vim.cmd [[colorscheme gruvbox]]
         end
-    }
+    },
 
-    use {
+    {
         'lukas-reineke/indent-blankline.nvim',
         config = function()
             require('timmer.config.indent_blankline')
         end,
-    }
+    },
 
-    use {
+    {
         'nvim-lualine/lualine.nvim',
         commit = 'afece9bbf960f908cbaffebaa4b5a0506e9dc8ed',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        -- dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
+        dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
         config = function()
             require('timmer.config.lualine')
         end
-    }
+    },
 
-    use {
+    {
         'nvim-tree/nvim-tree.lua',
-        requires = 'nvim-tree/nvim-web-devicons',
+        dependencies = 'nvim-tree/nvim-web-devicons',
         tag = 'nightly',
         config = function()
             require('timmer.config.nvim_tree')
         end
-    }
+    },
 
     -- Delete buffers without messing up window layout
     -- Use :Bdelete instead of :bdelete
-    use 'famiu/bufdelete.nvim'
+    'famiu/bufdelete.nvim',
 
-    use {
+    {
         'kylechui/nvim-surround',
-        tag = '*', -- Use for stability; omit to use `main` branch for the latest features
+        -- tag = '*', -- Use for stability; omit to use `main` branch for the latest features
         config = function()
             require('nvim-surround').setup({
                 -- Configuration here, or leave empty to use defaults
             })
         end
-    }
+    },
 
-    use {
+    {
         'numToStr/Comment.nvim',
         config = function()
             require('timmer.config.comment')
         end
-    }
+    },
 
-    use {
+    {
         'lewis6991/gitsigns.nvim',
         config = function()
             require('timmer.config.gitsigns')
         end
-    }
+    },
 
-    use {
+    {
         'sindrets/diffview.nvim',
         config = function()
             -- require('timmer.config.diffview')
         end
-    } 
+    },
 
-    use({
+    {
         'nvim-telescope/telescope.nvim',
-        requires = {
+        dependencies = {
             'nvim-lua/plenary.nvim',
-            'kyazdani42/nvim-web-devicons',
+            -- 'kyazdani42/nvim-web-devicons',
+            'nvim-tree/nvim-web-devicons',
             'nvim-telescope/telescope-live-grep-args.nvim',
-            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         },
         config = function()
             require('timmer.config.telescope')
         end,
-    })
+    },
 
-    use {
+    {
         'nvim-telescope/telescope-file-browser.nvim',
-        requires = {
+        dependencies = {
             'nvim-telescope/telescope.nvim',
             'nvim-lua/plenary.nvim'
         }
-    }
+    },
 
-    use {
+    {
         'nvim-treesitter/nvim-treesitter',
         tag = 'v0.9.1',
-        run = function()
+        build = function()
             require('nvim-treesitter.install').update({with_sync = true})
         end,
-        requires = {
+        dependencies = {
             'JoosepAlviste/nvim-ts-context-commentstring',
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
         config = function()
             require('timmer.config.treesitter')
         end
-    }
+    },
 
-    use {
+    {
         'VonHeikemen/lsp-zero.nvim',
         -- branch = 'v2.x',
-        requires = {
+        dependencies = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required
             {'williamboman/mason.nvim'},           -- Optional
@@ -167,74 +165,64 @@ require('packer').startup(function(use)
         config = function()
             require('timmer.config.lsp')
         end,
-    }
+    },
 
-    use {
+    {
         "windwp/nvim-autopairs",
         config = function()
             require('timmer.config.autopairs')
         end
-    }
+    },
 
 --[[
     -- Display buffers as tabs
-    use {
+    {
         'akinsho/bufferline.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
+        -- dependencies = 'kyazdani42/nvim-web-devicons',
+        dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
             require('timmer.config.bufferline')
             -- require('bufferline').setup()
         end
-    }
+    },
 
-    use {
+    {
         'abecodes/tabout.nvim',
         config = function()
             require('timmer.config.tabout')
         end,
         ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
         exclude = {} -- tabout will ignore these filetypes
-    }
+    },
 
-    use {
+    {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
-        requires = {'nvim-tree/nvim-web-devicons'},
+        dependencies = {'nvim-tree/nvim-web-devicons'},
         config = function()
             require('timmer.config.dashboard-nvim')
         end
-    }
+    },
 
-    use ({
+    {
         'neovim/nvim-lspconfig',
-        requires = {
+        dependencies = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
         },
         config = function()
             require('timmer.config.lspconfig')
         end
-    })
+    },
 
-    use {
+    {
         'stevearc/aerial.nvim',
-        requires = {'nvim-tree/nvim-web-devicons'},
+        dependencies = {'nvim-tree/nvim-web-devicons'},
         config = function() 
             require('timmer.config.aerial')
         end
-    }
+    },
 ]]
 
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-
-end)
-
-vim.cmd([[
-    augroup packer_user_config
-        autocmd!
-        autocmd BufWritePost plugins.lua nested source <afile> | PackerSync
-    augroup end
-]])
+})
 

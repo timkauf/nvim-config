@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup({
     ensure_installed = {"c", "javascript", "lua", "php", "python", "vim", "vue", "help"},
-    ignore_install = {}, -- List of parsers to ignore installing
+    ignore_install = { 'help' }, -- List of parsers to ignore installing
     highlight = {
         enable = true, -- false will disable the whole extension
         disable = { 'help' }, -- list of language that will be disabled

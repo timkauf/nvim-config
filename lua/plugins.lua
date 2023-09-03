@@ -36,7 +36,7 @@ require('lazy').setup({
             -- vim.cmd [[colorscheme dawnfox]]
 
             -- vim.cmd [[colorscheme zenburn]]
-            -- require('timmer.config.color_zenburn')
+            -- require('config.color_zenburn')
 
             -- vim.cmd [[colorscheme everforest]]
             -- vim.cmd [[colorscheme gruvbox]]
@@ -46,7 +46,7 @@ require('lazy').setup({
     {
         'lukas-reineke/indent-blankline.nvim',
         config = function()
-            require('timmer.config.indent_blankline')
+            require('config.indent_blankline')
         end,
     },
 
@@ -56,7 +56,7 @@ require('lazy').setup({
         -- dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
         dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
         config = function()
-            require('timmer.config.lualine')
+            require('config.lualine')
         end
     },
 
@@ -65,7 +65,7 @@ require('lazy').setup({
         dependencies = 'nvim-tree/nvim-web-devicons',
         tag = 'nightly',
         config = function()
-            require('timmer.config.nvim_tree')
+            require('config.nvim_tree')
         end
     },
 
@@ -86,21 +86,21 @@ require('lazy').setup({
     {
         'numToStr/Comment.nvim',
         config = function()
-            require('timmer.config.comment')
+            require('config.comment')
         end
     },
 
     {
         'lewis6991/gitsigns.nvim',
         config = function()
-            require('timmer.config.gitsigns')
+            require('config.gitsigns')
         end
     },
 
     {
         'sindrets/diffview.nvim',
         config = function()
-            -- require('timmer.config.diffview')
+            -- require('config.diffview')
         end
     },
 
@@ -114,7 +114,7 @@ require('lazy').setup({
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         },
         config = function()
-            require('timmer.config.telescope')
+            require('config.telescope')
         end,
     },
 
@@ -137,7 +137,7 @@ require('lazy').setup({
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
         config = function()
-            require('timmer.config.treesitter')
+            require('config.treesitter')
         end
     },
 
@@ -163,14 +163,14 @@ require('lazy').setup({
             {'rafamadriz/friendly-snippets'}, -- Optional
         },
         config = function()
-            require('timmer.config.lsp')
+            require('config.lsp')
         end,
     },
 
     {
         "windwp/nvim-autopairs",
         config = function()
-            require('timmer.config.autopairs')
+            require('config.autopairs')
         end
     },
 
@@ -181,7 +181,7 @@ require('lazy').setup({
         -- dependencies = 'kyazdani42/nvim-web-devicons',
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
-            require('timmer.config.bufferline')
+            require('config.bufferline')
             -- require('bufferline').setup()
         end
     },
@@ -189,7 +189,7 @@ require('lazy').setup({
     {
         'abecodes/tabout.nvim',
         config = function()
-            require('timmer.config.tabout')
+            require('config.tabout')
         end,
         ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
         exclude = {} -- tabout will ignore these filetypes
@@ -200,7 +200,7 @@ require('lazy').setup({
         event = 'VimEnter',
         dependencies = {'nvim-tree/nvim-web-devicons'},
         config = function()
-            require('timmer.config.dashboard-nvim')
+            require('config.dashboard-nvim')
         end
     },
 
@@ -211,7 +211,7 @@ require('lazy').setup({
             'williamboman/mason-lspconfig.nvim',
         },
         config = function()
-            require('timmer.config.lspconfig')
+            require('config.lspconfig')
         end
     },
 
@@ -219,7 +219,7 @@ require('lazy').setup({
         'stevearc/aerial.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'},
         config = function() 
-            require('timmer.config.aerial')
+            require('config.aerial')
         end
     },
 ]]

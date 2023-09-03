@@ -10,8 +10,7 @@ g.mapleader = " "
 -- g.localleader = "\\"
 
 -- Imports
-require('timmer/options')
-require('timmer/keymaps')
-require('timmer/plugins')
--- require('timmer/reload')  --Debug why hot reload not working
+require('./options')
+require('./keymaps')
+require('./plugins')
 

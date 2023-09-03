@@ -18,22 +18,32 @@ require('packer').startup(function(use)
 
     -- Color schemes
     use {
-        -- 'folke/tokyonight.nvim',
-        -- 'ellisonleao/gruvbox.nvim',
-        'catppuccin/nvim',
+        'folke/tokyonight.nvim',
+        -- 'catppuccin/nvim',
+        -- 'EdenEast/nightfox.nvim',
         -- 'phha/zenburn.nvim',
+        -- 'sainnhe/everforest',
+        -- 'ellisonleao/gruvbox.nvim',
 
         config = function()
-            -- vim.cmd [[colorscheme tokyonight]]
-            -- vim.cmd [[colorscheme tokyonight-day]]
 
-            -- vim.cmd [[colorscheme gruvbox]]
+            -- vim.cmd [[colorscheme tokyonight]]
+            vim.cmd [[colorscheme tokyonight-day]]
 
             -- vim.cmd [[colorscheme catppuccin]]
-            vim.cmd [[colorscheme catppuccin-latte]]
+            -- vim.cmd [[colorscheme catppuccin-frappe]]
+            -- vim.cmd [[colorscheme catppuccin-latte]]
+
+            -- vim.cmd [[colorscheme nightfox]]
+            -- vim.cmd [[colorscheme nordfox]]
+            -- vim.cmd [[colorscheme dayfox]]
+            -- vim.cmd [[colorscheme dawnfox]]
 
             -- vim.cmd [[colorscheme zenburn]]
             -- require('timmer.config.color_zenburn')
+
+            -- vim.cmd [[colorscheme everforest]]
+            -- vim.cmd [[colorscheme gruvbox]]
         end
     }
 
@@ -89,6 +99,13 @@ require('packer').startup(function(use)
             require('timmer.config.gitsigns')
         end
     }
+
+    use {
+        'sindrets/diffview.nvim',
+        config = function()
+            -- require('timmer.config.diffview')
+        end
+    } 
 
     use({
         'nvim-telescope/telescope.nvim',

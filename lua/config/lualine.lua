@@ -32,7 +32,16 @@ require('lualine').setup({
     }
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = {
+        {
+            'mode',
+            icon = {
+                '',
+                align='left',
+                -- color={fg='green'}
+            }
+        }
+    },
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {
         {'filetype', icon_only = true},

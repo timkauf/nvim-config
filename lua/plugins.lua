@@ -15,20 +15,20 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
     -- Color schemes
     {
-        'folke/tokyonight.nvim',
-        -- 'catppuccin/nvim',
+        -- 'folke/tokyonight.nvim',
+        'catppuccin/nvim',
         -- 'EdenEast/nightfox.nvim',
         -- 'phha/zenburn.nvim',
         -- 'sainnhe/everforest',
         -- 'ellisonleao/gruvbox.nvim',
 
         config = function()
-            vim.cmd [[colorscheme tokyonight]]
+            -- vim.cmd [[colorscheme tokyonight]]
             -- vim.cmd [[colorscheme tokyonight-day]]
 
             -- vim.cmd [[colorscheme catppuccin]]
             -- vim.cmd [[colorscheme catppuccin-frappe]]
-            -- vim.cmd [[colorscheme catppuccin-latte]]
+            vim.cmd [[colorscheme catppuccin-latte]]
 
             -- vim.cmd [[colorscheme nightfox]]
             -- vim.cmd [[colorscheme nordfox]]
@@ -52,11 +52,22 @@ require('lazy').setup({
 
     {
         'nvim-lualine/lualine.nvim',
-        commit = 'afece9bbf960f908cbaffebaa4b5a0506e9dc8ed',
+        -- commit = 'afece9bbf960f908cbaffebaa4b5a0506e9dc8ed',
         -- dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
         dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
         config = function()
             require('config.lualine')
+        end
+    },
+
+    -- Display buffers as tabs
+    {
+        'akinsho/bufferline.nvim',
+        -- dependencies = 'kyazdani42/nvim-web-devicons',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            require('config.bufferline')
+            -- require('bufferline').setup()
         end
     },
 
@@ -163,7 +174,9 @@ require('lazy').setup({
             {'rafamadriz/friendly-snippets'}, -- Optional
         },
         config = function()
+            -- require('config.lsp')
             require('config.lsp')
+            require('config.lspconfig')
         end,
     },
 
@@ -174,18 +187,16 @@ require('lazy').setup({
         end
     },
 
---[[
-    -- Display buffers as tabs
     {
-        'akinsho/bufferline.nvim',
-        -- dependencies = 'kyazdani42/nvim-web-devicons',
-        dependencies = 'nvim-tree/nvim-web-devicons',
+        'rmagatti/auto-session',
         config = function()
-            require('config.bufferline')
-            -- require('bufferline').setup()
+            require('config.auto_session')
         end
     },
 
+    'jwalton512/vim-blade',
+
+--[[
     {
         'abecodes/tabout.nvim',
         config = function()
@@ -193,15 +204,6 @@ require('lazy').setup({
         end,
         ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
         exclude = {} -- tabout will ignore these filetypes
-    },
-
-    {
-        'glepnir/dashboard-nvim',
-        event = 'VimEnter',
-        dependencies = {'nvim-tree/nvim-web-devicons'},
-        config = function()
-            require('config.dashboard-nvim')
-        end
     },
 
     {
@@ -220,6 +222,15 @@ require('lazy').setup({
         dependencies = {'nvim-tree/nvim-web-devicons'},
         config = function() 
             require('config.aerial')
+        end
+    },
+
+    {
+        'glepnir/dashboard-nvim',
+        event = 'VimEnter',
+        dependencies = {'nvim-tree/nvim-web-devicons'},
+        config = function()
+            require('config.dashboard-nvim')
         end
     },
 ]]

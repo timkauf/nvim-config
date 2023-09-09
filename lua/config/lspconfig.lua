@@ -34,9 +34,16 @@ vim.fn.sign_define('DiagnosticSignWarn', {text = '', texthl = 'DiagnosticSign
 vim.fn.sign_define('DiagnosticSignInfo', {text = '', texthl = 'DiagnosticSignInfo'})
 vim.fn.sign_define('DiagnosticSignHint', {text = '', texthl = 'DiagnosticSignHint'})
 
+-- vim.diagnostic.config({
+--     virtual_text =  true,
+--     float = {
+--         source = true,
+--     }
+-- })
 vim.diagnostic.config({
-    virtual_text =  true,
-    float = {
-        source = true,
-    }
+  virtual_text = false
 })
+
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]

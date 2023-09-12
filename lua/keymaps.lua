@@ -29,9 +29,9 @@ map('v', ';', ':')
 map('v', ':', ';')
 
 -- BUFFERS
-map('n', '<leader>b', '<C-6>') --toggle
-map('n', '<leader>n', ':bnext<CR>')
-map('n', '<leader>p', ':bprev<CR>')
+map('n', '<leader>bt', '<C-6>') --toggle
+map('n', '<leader>bn', ':bnext<CR>')
+map('n', '<leader>bp', ':bprev<CR>')
 
 -- WINDOWS
 map('n', '<leader>w', '<C-w>w')
@@ -68,6 +68,8 @@ map('n', '<leader>t', ':terminal<CR>')
 map('t', 'jj', [[<C-\><C-n>]])
 
 -- TERMINAL COMMANDS
+-- Format JSON file
+map('n', '<leader>jq', ':%!jq .<CR>')
 -- Open current file in default Mac app
 map('n', '<leader>x', ':!open %<CR><CR>')
 

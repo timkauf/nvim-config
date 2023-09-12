@@ -16,8 +16,8 @@ require('lazy').setup({
     -- Color schemes
     {
         -- 'folke/tokyonight.nvim',
-        'catppuccin/nvim',
-        -- 'EdenEast/nightfox.nvim',
+        -- 'catppuccin/nvim',
+        'EdenEast/nightfox.nvim',
         -- 'phha/zenburn.nvim',
         -- 'sainnhe/everforest',
         -- 'ellisonleao/gruvbox.nvim',
@@ -28,11 +28,11 @@ require('lazy').setup({
 
             -- vim.cmd [[colorscheme catppuccin]]
             -- vim.cmd [[colorscheme catppuccin-frappe]]
-            vim.cmd [[colorscheme catppuccin-latte]]
+            -- vim.cmd [[colorscheme catppuccin-latte]]
 
             -- vim.cmd [[colorscheme nightfox]]
             -- vim.cmd [[colorscheme nordfox]]
-            -- vim.cmd [[colorscheme dayfox]]
+            vim.cmd [[colorscheme dayfox]]
             -- vim.cmd [[colorscheme dawnfox]]
 
             -- vim.cmd [[colorscheme zenburn]]
@@ -82,7 +82,12 @@ require('lazy').setup({
 
     -- Delete buffers without messing up window layout
     -- Use :Bdelete instead of :bdelete
-    'famiu/bufdelete.nvim',
+    {
+        'famiu/bufdelete.nvim',
+        config = function()
+            require('config.bufdelete')
+        end
+    },
 
     {
         'kylechui/nvim-surround',

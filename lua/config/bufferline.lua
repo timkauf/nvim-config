@@ -34,3 +34,11 @@ require('bufferline').setup({
     },
 })
 
+--Keymaps
+vim.keymap.set('n', '<leader>bb', [[<cmd>BufferLinePick<CR>]])
+vim.keymap.set('n', '<leader>bc', [[<cmd>BufferLinePickClose<CR>]])
+vim.keymap.set('n', '<leader>bl', [[<cmd>BufferLineCycleNext<CR>]])
+vim.keymap.set('n', '<leader>bh', [[<cmd>BufferLineCyclePrev<CR>]])
+vim.keymap.set('n', '<leader>b=', [[<cmd>BufferLineMoveNext<CR>]])
+vim.keymap.set('n', '<leader>b-', [[<cmd>BufferLineMovePrev<CR>]])
+

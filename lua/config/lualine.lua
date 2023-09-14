@@ -48,6 +48,7 @@ require('lualine').setup({
             {'filetype', icon_only = true},
             {
                 'filename',
+                path = 1,
                 symbols = {
                     modified =  ' ',
                     readonly = ' ',

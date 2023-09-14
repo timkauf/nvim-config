@@ -60,17 +60,6 @@ require('lazy').setup({
         end
     },
 
-    -- Display buffers as tabs
-    {
-        'akinsho/bufferline.nvim',
-        -- dependencies = 'kyazdani42/nvim-web-devicons',
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        config = function()
-            require('config.bufferline')
-            -- require('bufferline').setup()
-        end
-    },
-
     {
         'nvim-tree/nvim-tree.lua',
         dependencies = 'nvim-tree/nvim-web-devicons',
@@ -202,6 +191,17 @@ require('lazy').setup({
     'jwalton512/vim-blade',
 
 --[[
+    -- Display buffers as tabs
+    {
+        'akinsho/bufferline.nvim',
+        -- dependencies = 'kyazdani42/nvim-web-devicons',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            require('config.bufferline')
+            -- require('bufferline').setup()
+        end
+    },
+
     {
         'abecodes/tabout.nvim',
         config = function()

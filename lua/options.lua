@@ -8,6 +8,7 @@ opt.clipboard = 'unnamedplus'
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes:2"
+-- opt.statuscolumn = "%s %l %r"
 
 -- Scrolling
 opt.scrolloff = 8

@@ -168,9 +168,9 @@ require('lazy').setup({
             {'rafamadriz/friendly-snippets'}, -- Optional
         },
         config = function()
-            -- require('config.lsp')
             require('config.lsp')
             require('config.lspconfig')
+            require('config.nvim_cmp')
         end,
     },
 
@@ -188,6 +188,7 @@ require('lazy').setup({
         end
     },
 
+    -- PHP specific
     'jwalton512/vim-blade',
 
 --[[

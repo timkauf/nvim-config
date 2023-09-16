@@ -29,9 +29,10 @@ map('v', ';', ':')
 map('v', ':', ';')
 
 -- BUFFERS
-map('n', '<leader>b', '<C-6>') --toggle
-map('n', '<leader>n', ':bnext<CR>')
-map('n', '<leader>p', ':bprev<CR>')
+map('n', '<leader>bb', '<C-6>') --toggle
+map('n', '<leader>bn', ':bnext<CR>')
+map('n', '<leader>bp', ':bprev<CR>')
+map('n', '<leader>bq', ':bufdo bd<CR>')
 
 -- WINDOWS
 map('n', '<leader>w', '<C-w>w')
@@ -53,6 +54,8 @@ map("v", ">", ">gv")
 -- SEARCH
 -- Search/replace - put something in search buffer (using *, /, etc) before triggering
 map('n', '<leader>sr', ':%s///g<left><left>')
+-- Visual block search/replace
+map('v', '<leader>sv', ':s///g<left><left><left>')
 -- Keep search matches in middle of window
 map('n', 'n',  'nzzzv')
 map('n', 'N',  'Nzzzv')

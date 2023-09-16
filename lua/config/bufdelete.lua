@@ -1,3 +1,3 @@
 
 --Keymaps
-map('n', '<leader>q', ':Bdelete<CR>')
+map('n', '<leader>bd', ':Bdelete<CR>')

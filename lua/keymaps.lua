@@ -6,9 +6,6 @@ function map(mode, key, result, opts)
     vim.api.nvim_set_keymap(mode, key, result, options)
 end
 
---Source config
-map('n', '<leader>sv', ':source $MYVIMRC')
-
 -- MOTIONS
 -- Move lines down/up
 map('n', '<C-j>', ":m .+1<CR>==")
@@ -27,6 +24,10 @@ map('n', ';', ':')
 map('n', ':', ';')
 map('v', ';', ':')
 map('v', ':', ';')
+
+-- LINE NUMBERS
+-- Toggle relative numbers
+map('n', '<leader>ll', ':set relativenumber!<CR>')
 
 -- BUFFERS
 map('n', '<leader>bb', '<C-6>') --toggle

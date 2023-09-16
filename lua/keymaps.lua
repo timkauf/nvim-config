@@ -19,11 +19,14 @@ map('i', 'jj', '<ESC>')
 map('v', '<leader>e', '<ESC>')
 map('c', '<leader>e', '<C-c>')
 
--- Command mode
+-- EX COMMAND MODE
+-- Swap colon and semi-colon
 map('n', ';', ':')
 map('n', ':', ';')
 map('v', ';', ':')
 map('v', ':', ';')
+-- Repeat last Ex command
+map('n', '<leader>.', '@:<CR>')
 
 -- LINE NUMBERS
 -- Toggle relative numbers

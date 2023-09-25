@@ -40,4 +40,9 @@ require('Comment').setup({
     pre_hook = nil,
     ---Function to call after (un)comment
     post_hook = nil,
+
+
+    -- Language specific stuff I added
+    require('Comment.ft')
+        .set('laravel', '{{--%s--}}')
 })

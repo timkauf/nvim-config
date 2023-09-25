@@ -1,9 +1,47 @@
 local telescope = require("telescope")
+local actions = require("telescope.actions")
 local lga_actions = require("telescope-live-grep-args.actions")
 
--- You dont need to set any of these options. These are the default ones. Only
--- the loading is important
+-- Highlights...not working
+-- vim.cmd([[
+--     highlight link TelescopePromptTitle PMenuSel
+--     highlight link TelescopePreviewTitle PMenuSel
+--     highlight link TelescopePromptNormal NormalFloat
+--     highlight link TelescopePromptBorder FloatBorder
+--     highlight link TelescopeNormal CursorLine
+--     highlight link TelescopeBorder CursorLineBg
+-- ]])
+
 telescope.setup {
+    defaults = {
+        layout_config = {
+            prompt_position = 'top',
+        },
+        sorting_strategy = 'ascending',
+    },
+    mappings = {
+        i = {
+            -- To make Escape close Telescope, rather than go into "normal" mode...not working
+            -- ["<esc>"] = actions.close,
+        },
+    },
+    pickers = {
+        find_files = {
+            hidden = true,
+        },
+        buffers = {
+            previewer = false,
+            layout_config = {
+                width = 80,
+            },
+        },
+        oldfiles = {
+            prompt_title = 'History',
+        },
+        lsp_references = {
+            previewer = false,
+        },
+    },
     extensions = {
         fzf = {
             fuzzy = true,                       -- false will only do exact matching
@@ -44,6 +82,7 @@ require('telescope').load_extension('live_grep_args')
 require("telescope").load_extension "file_browser"
 
 -- Keymaps
+vim.api.nvim_set_keymap("n", "<leader>ft", ":Telescope<CR>", { noremap = true })
 vim.keymap.set('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set('n', '<leader>fa', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]])
 vim.keymap.set('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])

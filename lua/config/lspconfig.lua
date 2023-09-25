@@ -19,6 +19,7 @@ require('lspconfig').volar.setup({
 require('lspconfig').tailwindcss.setup({})
 
 -- Key mappings
+local bufopts = { noremap=true, silent=true }
 vim.keymap.set('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>)')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>)')
 vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>)')

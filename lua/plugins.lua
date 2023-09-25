@@ -14,34 +14,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     -- Color schemes
-    {
-        -- 'folke/tokyonight.nvim',
-        -- 'catppuccin/nvim',
-        'EdenEast/nightfox.nvim',
-        -- 'phha/zenburn.nvim',
-        -- 'sainnhe/everforest',
-        -- 'ellisonleao/gruvbox.nvim',
-
-        config = function()
-            -- vim.cmd [[colorscheme tokyonight]]
-            -- vim.cmd [[colorscheme tokyonight-day]]
-
-            -- vim.cmd [[colorscheme catppuccin]]
-            -- vim.cmd [[colorscheme catppuccin-frappe]]
-            -- vim.cmd [[colorscheme catppuccin-latte]]
-
-            -- vim.cmd [[colorscheme nightfox]]
-            -- vim.cmd [[colorscheme nordfox]]
-            vim.cmd [[colorscheme dayfox]]
-            -- vim.cmd [[colorscheme dawnfox]]
-
-            -- vim.cmd [[colorscheme zenburn]]
-            -- require('config.color_zenburn')
-
-            -- vim.cmd [[colorscheme everforest]]
-            -- vim.cmd [[colorscheme gruvbox]]
-        end
-    },
+    'folke/tokyonight.nvim',
+    'catppuccin/nvim',
+    'EdenEast/nightfox.nvim',
+    'phha/zenburn.nvim',
+    'sainnhe/everforest',
+    'ellisonleao/gruvbox.nvim',
 
     {
         'lukas-reineke/indent-blankline.nvim',
@@ -239,7 +217,7 @@ require('lazy').setup({
             require('config.dashboard-nvim')
         end
     },
-]]
+--]]
 
 })
 

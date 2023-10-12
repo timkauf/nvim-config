@@ -1,6 +1,39 @@
 -- Set up Mason to automatically install LSP servers
-require('mason').setup()
-require('mason-lspconfig').setup({automatic_installation = true})
+-- require('mason').setup()
+-- require('mason-lspconfig').setup({automatic_installation = true})
+
+-- Change to below boilerplate as per v2 to v3 migration guide in github
+local lsp_zero = require('lsp-zero')
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {'intelephense', 'pyright', 'volar'},
+  handlers = {
+    lsp_zero.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp_zero.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+  }
+})
+-- Completion item labels
+local cmp = require('cmp')
+local cmp_format = require('lsp-zero').cmp_format()
+
+cmp.setup({
+    formatting = cmp_format,
+})
+-- Documentation window scrolling
+local cmp = require('cmp')
+
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        -- scroll up and down the documentation window
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    }),
+})
+
 
 -- PHP
 require('lspconfig').intelephense.setup({})

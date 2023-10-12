@@ -31,7 +31,6 @@ require('lazy').setup({
 
     {
         'nvim-lualine/lualine.nvim',
-        -- commit = 'afece9bbf960f908cbaffebaa4b5a0506e9dc8ed',
         -- dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
         dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
         config = function()

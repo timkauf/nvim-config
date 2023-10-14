@@ -31,9 +31,19 @@ telescope.setup {
         },
         buffers = {
             previewer = false,
+            show_all_buffers = true,
+            sort_lastused = true,
             layout_config = {
                 width = 80,
             },
+            mappings = {
+                i = {
+                    ["<c-d>"] = "delete_buffer"
+                },
+                n = {
+                    ["<c-d>"] = "delete_buffer"
+                }
+            }
         },
         oldfiles = {
             prompt_title = 'History',

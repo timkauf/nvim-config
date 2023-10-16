@@ -51,6 +51,8 @@ require('lspconfig').volar.setup({
 -- TailwindCSS
 require('lspconfig').tailwindcss.setup({})
 
+--[[
+-- Let's use LSP Zero default keymaps
 -- Key mappings
 local bufopts = { noremap=true, silent=true }
 vim.keymap.set('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>)')
@@ -61,6 +63,7 @@ vim.keymap.set('n', '<leader>gi', ':Telescope lsp_implementations<CR>)')
 vim.keymap.set('n', '<leader>gr', ':Telescope lsp_references<CR>)')
 vim.keymap.set('n', '<leader>k', '<cmd>lua vim.lsp.buf.hover()<CR>)')
 vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>)')
+--]]
 
 -- Sign config
 vim.fn.sign_define('DiagnosticSignError', {text = '', texthl = 'DiagnosticSignError'})
@@ -78,6 +81,9 @@ vim.diagnostic.config({
   virtual_text = false
 })
 
+--[[
+-- Let's just use keymap to open popup
 -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 250
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+--]]

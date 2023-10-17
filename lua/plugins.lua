@@ -47,12 +47,14 @@ require('lazy').setup({
         end
     },
 
-    -- Delete buffers without messing up window layout
-    -- Use :Bdelete instead of :bdelete
     {
-        'famiu/bufdelete.nvim',
+        'romgrk/barbar.nvim',
+        dependencies = {
+            'lewis6991/gitsigns.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
         config = function()
-            require('config.bufdelete')
+            require('config.barbar')
         end
     },
 
@@ -178,6 +180,15 @@ require('lazy').setup({
         config = function()
             require('config.bufferline')
             -- require('bufferline').setup()
+        end
+    },
+
+    -- Delete buffers without messing up window layout
+    -- Use :Bdelete instead of :bdelete
+    {
+        'famiu/bufdelete.nvim',
+        config = function()
+            require('config.bufdelete')
         end
     },
 

@@ -1,4 +1,5 @@
 require("nvim-tree").setup({
+    -- open_on_setup = true, -- Deprecated
     sort_by = "case_sensitive",
     update_cwd = true,
     view = {

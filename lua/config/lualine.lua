@@ -21,7 +21,9 @@ require('lualine').setup({
         show_filename_only = false,
         disabled_filetypes = {
             statusline = {},
-            winbar = {},
+            winbar = {
+                -- 'NvimTree',
+            },
         },
         ignore_focus = {},
         always_divide_middle = true,

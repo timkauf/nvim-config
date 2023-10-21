@@ -33,9 +33,10 @@ map('n', '<leader>.', '@:<CR>')
 map('n', '<leader>ll', ':set relativenumber!<CR>')
 
 -- BUFFERS
-map('n', '<leader>bt', '<C-6>') --toggle
+map('n', '<leader>bb', '<C-6>') --toggle
 map('n', '<leader>bn', ':bnext<CR>')
 map('n', '<leader>bp', ':bprev<CR>')
+map('n', '<leader>bd', ':Bdelete<CR>')
 map('n', '<leader>bq', ':bufdo bd<CR>')
 
 -- WINDOWS

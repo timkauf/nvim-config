@@ -1,7 +1,10 @@
 require('barbar').setup({
+    icons = {
+        modified = {button = ''},
+    },
     sidebar_filetypes = {
         NvimTree = true
-    }
+    },
 })
 
 --Keymaps

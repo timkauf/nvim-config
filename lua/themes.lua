@@ -3,8 +3,8 @@
 -- vim.cmd [[colorscheme tokyonight-day]]
 
 -- vim.cmd [[colorscheme catppuccin]]
-vim.cmd [[colorscheme catppuccin-frappe]]
--- vim.cmd [[colorscheme catppuccin-latte]]
+-- vim.cmd [[colorscheme catppuccin-frappe]]
+vim.cmd [[colorscheme catppuccin-latte]]
 
 -- vim.cmd [[colorscheme nightfox]]
 -- vim.cmd [[colorscheme nordfox]]
@@ -12,7 +12,6 @@ vim.cmd [[colorscheme catppuccin-frappe]]
 -- vim.cmd [[colorscheme dawnfox]]
 
 -- vim.cmd [[colorscheme zenburn]]
--- require('config.color_zenburn')
 
 -- vim.cmd [[colorscheme everforest]]
 -- vim.cmd [[colorscheme gruvbox]]
@@ -36,5 +35,4 @@ vim.cmd [[colorscheme catppuccin-frappe]]
 -- vim.cmd([[highlight CursorLine guibg=#584848]])
 -- vim.cmd([[highlight visual guibg=#606078]])
 -- vim.cmd([[highlight Search guibg=#a06040]])
--- vim.cmd([[highlight incsearch guibg=#808060]])
 -- vim.cmd([[highlight incsearch guibg=#808060]])

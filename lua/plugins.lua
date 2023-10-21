@@ -39,26 +39,6 @@ require('lazy').setup({
     },
 
     {
-        'nvim-tree/nvim-tree.lua',
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        tag = 'nightly',
-        config = function()
-            require('config.nvim_tree')
-        end
-    },
-
-    {
-        'romgrk/barbar.nvim',
-        dependencies = {
-            'lewis6991/gitsigns.nvim',
-            'nvim-tree/nvim-web-devicons',
-        },
-        config = function()
-            require('config.barbar')
-        end
-    },
-
-    {
         'kylechui/nvim-surround',
         -- tag = '*', -- Use for stability; omit to use `main` branch for the latest features
         config = function()
@@ -86,6 +66,15 @@ require('lazy').setup({
         'sindrets/diffview.nvim',
         config = function()
             -- require('config.diffview')
+        end
+    },
+
+    -- Delete buffers without messing up window layout
+    -- Use :Bdelete instead of :bdelete
+    {
+        'famiu/bufdelete.nvim',
+        config = function()
+            require('config.bufdelete')
         end
     },
 
@@ -173,7 +162,26 @@ require('lazy').setup({
     'jwalton512/vim-blade',
 
 --[[
-    -- Display buffers as tabs
+    {
+        'nvim-tree/nvim-tree.lua',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        tag = 'nightly',
+        config = function()
+            require('config.nvim_tree')
+        end
+    },
+
+    {
+        'romgrk/barbar.nvim',
+        dependencies = {
+            'lewis6991/gitsigns.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = function()
+            require('config.barbar')
+        end
+    },
+
     {
         'akinsho/bufferline.nvim',
         -- dependencies = 'kyazdani42/nvim-web-devicons',
@@ -181,15 +189,6 @@ require('lazy').setup({
         config = function()
             require('config.bufferline')
             -- require('bufferline').setup()
-        end
-    },
-
-    -- Delete buffers without messing up window layout
-    -- Use :Bdelete instead of :bdelete
-    {
-        'famiu/bufdelete.nvim',
-        config = function()
-            require('config.bufdelete')
         end
     },
 

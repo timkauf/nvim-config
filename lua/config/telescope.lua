@@ -1,5 +1,5 @@
 local telescope = require("telescope")
-local actions = require("telescope.actions")
+-- local actions = require("telescope.actions")
 local lga_actions = require("telescope-live-grep-args.actions")
 
 -- Highlights...not working
@@ -32,7 +32,7 @@ telescope.setup {
         buffers = {
             previewer = false,
             show_all_buffers = true,
-            sort_lastused = true,
+            sort_mru = true,
             layout_config = {
                 width = 80,
             },
@@ -92,7 +92,7 @@ require('telescope').load_extension('live_grep_args')
 require("telescope").load_extension "file_browser"
 
 -- Keymaps
-vim.api.nvim_set_keymap("n", "<leader>ft", ":Telescope<CR>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>ft', ':Telescope<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set('n', '<leader>fa', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]])
 vim.keymap.set('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])

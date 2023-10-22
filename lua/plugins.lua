@@ -39,12 +39,26 @@ require('lazy').setup({
     },
 
     {
-        'kylechui/nvim-surround',
-        -- tag = '*', -- Use for stability; omit to use `main` branch for the latest features
+        'nvim-tree/nvim-tree.lua',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        tag = 'nightly',
         config = function()
-            require('nvim-surround').setup({
-                -- Configuration here, or leave empty to use defaults
-            })
+            require('config.nvim_tree')
+        end
+    },
+
+    {
+        'stevearc/oil.nvim',
+        dependencies = {'nvim-tree/nvim-web-devicons'},
+        config = function()
+            require('config.oil')
+        end
+    },
+
+    {
+        'kylechui/nvim-surround',
+        config = function()
+            require('nvim-surround').setup({})
         end
     },
 
@@ -152,6 +166,15 @@ require('lazy').setup({
     },
 
     {
+        'abecodes/tabout.nvim',
+        config = function()
+            require('config.tabout')
+        end,
+        ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
+        exclude = {} -- tabout will ignore these filetypes
+    },
+
+    {
         'rmagatti/auto-session',
         config = function()
             require('config.auto_session')
@@ -162,15 +185,6 @@ require('lazy').setup({
     'jwalton512/vim-blade',
 
 --[[
-    {
-        'nvim-tree/nvim-tree.lua',
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        tag = 'nightly',
-        config = function()
-            require('config.nvim_tree')
-        end
-    },
-
     {
         'romgrk/barbar.nvim',
         dependencies = {
@@ -190,15 +204,6 @@ require('lazy').setup({
             require('config.bufferline')
             -- require('bufferline').setup()
         end
-    },
-
-    {
-        'abecodes/tabout.nvim',
-        config = function()
-            require('config.tabout')
-        end,
-        ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
-        exclude = {} -- tabout will ignore these filetypes
     },
 
     {

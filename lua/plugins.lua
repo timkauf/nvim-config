@@ -186,6 +186,17 @@ require('lazy').setup({
 
 --[[
     {
+        -- Getting errors trying to use this
+        'ccaglak/namespace.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        },
+        config = function()
+            require('config.namespace')
+        end
+    }
+
+    {
         'romgrk/barbar.nvim',
         dependencies = {
             'lewis6991/gitsigns.nvim',

@@ -25,6 +25,7 @@ require('mason-lspconfig').setup({
         'pyright',
         'volar',
         'tailwindcss',
+        'gopls',
     },
     handlers = {
         lsp_zero.default_setup,

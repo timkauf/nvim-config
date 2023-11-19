@@ -181,6 +181,8 @@ require('lazy').setup({
         end
     },
 
+    -- PHP specific
+    'jwalton512/vim-blade',
 
 --[[
     {

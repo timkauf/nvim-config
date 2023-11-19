@@ -37,7 +37,8 @@ map('n', '<leader>bb', '<C-6>') --toggle
 map('n', '<leader>bn', ':bnext<CR>')
 map('n', '<leader>bp', ':bprev<CR>')
 map('n', '<leader>bd', ':Bdelete<CR>')
-map('n', '<leader>bq', ':bufdo bd<CR>')
+map('n', '<leader>bq', ':bufdo bd<CR>') --close all buffers
+map('n', '<leader>be', ':bufdo e<CR>') --refresh all buffers
 
 -- WINDOWS
 map('n', '<leader>w', '<C-w>w')

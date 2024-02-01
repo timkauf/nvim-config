@@ -166,15 +166,6 @@ require('lazy').setup({
     },
 
     {
-        'abecodes/tabout.nvim',
-        config = function()
-            require('config.tabout')
-        end,
-        ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
-        exclude = {} -- tabout will ignore these filetypes
-    },
-
-    {
         'rmagatti/auto-session',
         config = function()
             require('config.auto_session')
@@ -226,6 +217,15 @@ require('lazy').setup({
         config = function()
             require('config.lspconfig')
         end
+    },
+
+    {
+        'abecodes/tabout.nvim',
+        config = function()
+            require('config.tabout')
+        end,
+        ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
+        exclude = {} -- tabout will ignore these filetypes
     },
 
     {

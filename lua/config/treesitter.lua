@@ -9,9 +9,9 @@ require("nvim-treesitter.configs").setup({
         -- Needed because treesitter highlight turns off autoindent for php files
         enable = true,
     },
-    context_commentstring = {
-        enable = true,
-    },
+    -- context_commentstring = {
+    --     enable = true,
+    -- },
     textobjects = {
         select = {
             enable = true,

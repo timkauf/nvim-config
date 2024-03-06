@@ -3,5 +3,5 @@ require('oil').setup({
 })
 
 -- Key mappings
-vim.api.nvim_set_keymap('n', '<leader>fo', ':Oil<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>fo', ':Oil<CR>', { noremap = true })
 

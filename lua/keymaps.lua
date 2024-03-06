@@ -3,7 +3,7 @@ function map(mode, key, result, opts)
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end
-    vim.api.nvim_set_keymap(mode, key, result, options)
+    vim.keymap.set(mode, key, result, options)
 end
 
 -- MOTIONS
@@ -72,7 +72,7 @@ map('n', '<leader>y', '"*y')
 map('v', '<leader>y', '"*y')
 
 -- BUILT-IN TERMINAL
-map('n', '<leader>t', ':terminal<CR>')
+map('n', '<leader>tt', ':terminal<CR>')
 -- Escape to normal mode
 map('t', 'jj', [[<C-\><C-n>]])
 

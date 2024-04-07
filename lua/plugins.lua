@@ -13,6 +13,18 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require('lazy').setup({
+    {
+        'folke/which-key.nvim',
+        event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 600
+        end,
+        config = function() -- This is the function that runs, AFTER loading
+            require('config.which-key')
+        end,
+    },
+
     -- Color schemes
     'folke/tokyonight.nvim',
     'catppuccin/nvim',
@@ -251,6 +263,7 @@ require('lazy').setup({
             require('config.dashboard-nvim')
         end
     },
+
 --]]
 
 })

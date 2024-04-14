@@ -149,32 +149,14 @@ require('lazy').setup({
     },
 
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
+        'neovim/nvim-lspconfig',
         dependencies = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},         -- Required
-            {'hrsh7th/cmp-nvim-lsp'},     -- Required
-            -- {'hrsh7th/cmp-buffer'},       -- Optional
-            -- {'hrsh7th/cmp-path'},         -- Optional
-            -- {'saadparwaiz1/cmp_luasnip'}, -- Optional
-            -- {'hrsh7th/cmp-nvim-lua'},     -- Optional
-
-            -- Snippets
-            {'L3MON4D3/LuaSnip'},             -- Required
-            -- {'rafamadriz/friendly-snippets'}, -- Optional
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
         },
         config = function()
-            require('config.lsp_zero')
-            -- require('config.lsp')
-            -- require('config.lspconfig')
-            -- require('config.nvim_cmp')
-        end,
+            require('config.lspconfig')
+        end
     },
 
     {
@@ -228,17 +210,6 @@ require('lazy').setup({
     },
 
     {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
-        },
-        config = function()
-            require('config.lspconfig')
-        end
-    },
-
-    {
         'abecodes/tabout.nvim',
         config = function()
             require('config.tabout')
@@ -262,6 +233,35 @@ require('lazy').setup({
         config = function()
             require('config.dashboard-nvim')
         end
+    },
+
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        dependencies = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig_old'},             -- Required
+            {'williamboman/mason.nvim'},           -- Optional
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},         -- Required
+            {'hrsh7th/cmp-nvim-lsp'},     -- Required
+            -- {'hrsh7th/cmp-buffer'},       -- Optional
+            -- {'hrsh7th/cmp-path'},         -- Optional
+            -- {'saadparwaiz1/cmp_luasnip'}, -- Optional
+            -- {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+            -- Snippets
+            {'L3MON4D3/LuaSnip'},             -- Required
+            -- {'rafamadriz/friendly-snippets'}, -- Optional
+        },
+        config = function()
+            require('config.lsp_zero')
+            -- require('config.lsp')
+            -- require('config.lspconfig_old')
+            -- require('config.nvim_cmp')
+        end,
     },
 
 --]]

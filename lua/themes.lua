@@ -30,10 +30,3 @@ vim.cmd [[colorscheme catppuccin-frappe]]
 --     bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
 -- })
 
--- ZENBURN
--- require('zenburn').setup()
-
--- vim.cmd([[highlight CursorLine guibg=#584848]])
--- vim.cmd([[highlight visual guibg=#606078]])
--- vim.cmd([[highlight Search guibg=#a06040]])
--- vim.cmd([[highlight incsearch guibg=#808060]])

@@ -51,7 +51,7 @@ opt.fillchars:append({ eob = ' ' })  -- remove the ~ from end of buffer
 
 -- Special modes
 opt.wildmode = 'longest:full,full'  -- complete the longest match, and allow tabbing the results to fully complete them
-opt.completeopt = 'menuone,longest,preview'
+opt.completeopt = 'menuone,longest,preview'  -- Show menu even if only one item, etc
 opt.mouse = 'a'  -- enable mouse for all modes
 
 -- Helpers

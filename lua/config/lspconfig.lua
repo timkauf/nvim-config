@@ -1,8 +1,11 @@
 require('mason').setup()
 require('mason-lspconfig').setup({automatic_installation = true})
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 -- Language servers
 require('lspconfig').lua_ls.setup({
+    capabilities = capabilities,
     settings = {
         Lua = {
             diagnostics = {
@@ -11,8 +14,9 @@ require('lspconfig').lua_ls.setup({
         }
     }
 })
-require('lspconfig').intelephense.setup({})
+require('lspconfig').intelephense.setup({capabilities = capabilities})
 require('lspconfig').volar.setup({
+    capabilities = capabilities,
     filetypes = {
         'typescript',
         'javascript',
@@ -22,9 +26,9 @@ require('lspconfig').volar.setup({
         'json',
     }
 })
-require('lspconfig').tailwindcss.setup({})
-require('lspconfig').pyright.setup({})
-require('lspconfig').gopls.setup({})
+require('lspconfig').tailwindcss.setup({capabilities = capabilities})
+require('lspconfig').pyright.setup({capabilities = capabilities})
+-- require('lspconfig').gopls.setup({capabilities = capabilities})
 
 vim.diagnostic.config({
     virtual_text = false,

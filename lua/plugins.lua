@@ -32,6 +32,7 @@ require('lazy').setup({
     'phha/zenburn.nvim',
     'sainnhe/everforest',
     'ellisonleao/gruvbox.nvim',
+    'Mofiqul/dracula.nvim',
 
     {
         'lukas-reineke/indent-blankline.nvim',

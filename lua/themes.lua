@@ -4,7 +4,7 @@
 
 -- vim.cmd [[colorscheme catppuccin]]
 -- vim.cmd [[colorscheme catppuccin-mocha]]
-vim.cmd [[colorscheme catppuccin-frappe]]
+-- vim.cmd [[colorscheme catppuccin-frappe]]
 -- vim.cmd [[colorscheme catppuccin-latte]]
 
 -- vim.cmd [[colorscheme nightfox]]
@@ -16,6 +16,7 @@ vim.cmd [[colorscheme catppuccin-frappe]]
 
 -- vim.cmd [[colorscheme everforest]]
 -- vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme dracula]]
 
 
 -- CUSTOMIZATIONS

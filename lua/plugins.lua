@@ -160,8 +160,6 @@ require('lazy').setup({
         end
     },
 
-
-
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
@@ -178,13 +176,19 @@ require('lazy').setup({
         end
     },
 
-
-
     {
         "windwp/nvim-autopairs",
         config = function()
             require('config.autopairs')
         end
+    },
+
+    {
+        "kawre/neotab.nvim",
+        event = "InsertEnter",
+        opts = {
+            -- See GitHub for default configs
+        },
     },
 
     {
@@ -231,15 +235,6 @@ require('lazy').setup({
     },
 
     {
-        'abecodes/tabout.nvim',
-        config = function()
-            require('config.tabout')
-        end,
-        ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
-        exclude = {} -- tabout will ignore these filetypes
-    },
-
-    {
         'stevearc/aerial.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'},
         config = function() 
@@ -254,6 +249,30 @@ require('lazy').setup({
         config = function()
             require('config.dashboard-nvim')
         end
+    },
+
+    {
+        'abecodes/tabout.nvim',
+        lazy = false,
+        config = function()
+            require('config.tabout')
+        end,
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "L3MON4D3/LuaSnip",
+            "hrsh7th/nvim-cmp"
+        },
+        opt = true,  -- Set this to true if the plugin is optional
+        event = 'InsertCharPre', -- Set the event to 'InsertCharPre' for better compatibility
+        priority = 1000,
+    },
+    -- Use this to prevent conflicts between tabout and LuaSnip
+    {
+        "L3MON4D3/LuaSnip",
+        keys = function()
+            -- Disable default tab keybinding in LuaSnip
+            return {}
+        end,
     },
 
     {

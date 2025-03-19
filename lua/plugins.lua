@@ -13,18 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require('lazy').setup({
-    {
-        'folke/which-key.nvim',
-        event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 600
-        end,
-        config = function() -- This is the function that runs, AFTER loading
-            require('config.which-key')
-        end,
-    },
-
     -- Color schemes
     'folke/tokyonight.nvim',
     'catppuccin/nvim',
@@ -191,6 +179,10 @@ require('lazy').setup({
         },
     },
 
+    -- PHP specific
+    'jwalton512/vim-blade',
+
+--[[
     {
         'rmagatti/auto-session',
         config = function()
@@ -198,10 +190,18 @@ require('lazy').setup({
         end
     },
 
-    -- PHP specific
-    'jwalton512/vim-blade',
+    {
+        'folke/which-key.nvim',
+        event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 600
+        end,
+        config = function() -- This is the function that runs, AFTER loading
+            require('config.which-key')
+        end,
+    },
 
---[[
     {
         -- Getting errors trying to use this
         'ccaglak/namespace.nvim',

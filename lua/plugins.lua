@@ -23,6 +23,43 @@ require('lazy').setup({
     'Mofiqul/dracula.nvim',
 
     {
+        'glepnir/dashboard-nvim',
+        event = 'VimEnter',
+        dependencies = {'nvim-tree/nvim-web-devicons'},
+        config = function()
+            require('config.dashboard-nvim')
+        end
+    },
+
+    {
+        'folke/which-key.nvim',
+        event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 600
+        end,
+        config = function() -- This is the function that runs, AFTER loading
+            require('config.which-key')
+        end,
+    },
+
+    {
+        'ThePrimeagen/harpoon',
+        branch = 'harpoon2',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('config.harpoon')
+        end,
+    },
+
+    {
+        'rmagatti/auto-session',
+        config = function()
+            require('config.auto_session')
+        end
+    },
+
+    {
         'lukas-reineke/indent-blankline.nvim',
         main = "ibl",
         config = function()
@@ -124,7 +161,6 @@ require('lazy').setup({
 
     {
         'nvim-treesitter/nvim-treesitter',
-        tag = 'v0.9.1',
         build = function()
             require('nvim-treesitter.install').update({with_sync = true})
         end,
@@ -184,25 +220,6 @@ require('lazy').setup({
 
 --[[
     {
-        'rmagatti/auto-session',
-        config = function()
-            require('config.auto_session')
-        end
-    },
-
-    {
-        'folke/which-key.nvim',
-        event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 600
-        end,
-        config = function() -- This is the function that runs, AFTER loading
-            require('config.which-key')
-        end,
-    },
-
-    {
         -- Getting errors trying to use this
         'ccaglak/namespace.nvim',
         dependencies = {
@@ -239,15 +256,6 @@ require('lazy').setup({
         dependencies = {'nvim-tree/nvim-web-devicons'},
         config = function() 
             require('config.aerial')
-        end
-    },
-
-    {
-        'glepnir/dashboard-nvim',
-        event = 'VimEnter',
-        dependencies = {'nvim-tree/nvim-web-devicons'},
-        config = function()
-            require('config.dashboard-nvim')
         end
     },
 

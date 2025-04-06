@@ -17,5 +17,5 @@ local options = {
 }
 
 -- Document existing key chains
-require('which-key').register(mappings, options)
+require('which-key').add(mappings, options)
 

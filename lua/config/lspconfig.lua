@@ -1,5 +1,5 @@
--- require('mason').setup()
--- require('mason-lspconfig').setup({automatic_installation = true})
+require('mason').setup()
+require('mason-lspconfig').setup({automatic_installation = true})
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 

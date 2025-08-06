@@ -60,6 +60,21 @@ telescope.setup {
             case_mode = "smart_case",           -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
         },
+        file_browser = {
+            -- theme = "ivy",
+            -- disables netrw and use telescope-file-browser in its place
+            hijack_netrw = true,
+            mappings = {
+                ["i"] = {
+                    -- your custom insert mode mappings
+                    ["<C-k>"] = lga_actions.quote_prompt(),
+                    ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+                },
+                ["n"] = {
+                    -- your custom normal mode mappings
+                },
+            },
+        },
     },
     --[[
     file_ignore_patterns = {
@@ -88,4 +103,5 @@ vim.keymap.set('n', '<leader>fc', [[<cmd>lua require('telescope.builtin').comman
 vim.keymap.set('n', '<leader>fk', [[<cmd>lua require('telescope.builtin').keymaps()<CR>]])
 vim.keymap.set('n', '<leader>fr', [[<cmd>lua require('telescope.builtin').resume()<CR>]])
 vim.keymap.set('n', '<leader>cs', [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]])
+vim.keymap.set("n", "<leader>fe", ":Telescope file_browser<CR>", { noremap = true })
 

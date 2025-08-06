@@ -23,6 +23,29 @@ require('lazy').setup({
     'Mofiqul/dracula.nvim',
 
     {
+        'rmagatti/auto-session',
+        config = function()
+            require('config.auto_session')
+        end
+    },
+
+    -- Delete buffers without messing up window layout
+    -- Use :Bdelete instead of :bdelete
+    {
+        'famiu/bufdelete.nvim',
+        config = function()
+            require('config.bufdelete')
+        end
+    },
+
+    {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('config.comment')
+        end
+    },
+
+    {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
         dependencies = {'nvim-tree/nvim-web-devicons'},
@@ -32,15 +55,17 @@ require('lazy').setup({
     },
 
     {
-        'folke/which-key.nvim',
-        event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 600
-        end,
-        config = function() -- This is the function that runs, AFTER loading
-            require('config.which-key')
-        end,
+        'sindrets/diffview.nvim',
+        config = function()
+            -- require('config.diffview')
+        end
+    },
+
+    {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('config.gitsigns')
+        end
     },
 
     {
@@ -50,13 +75,6 @@ require('lazy').setup({
         config = function()
             require('config.harpoon')
         end,
-    },
-
-    {
-        'rmagatti/auto-session',
-        config = function()
-            require('config.auto_session')
-        end
     },
 
     {
@@ -77,19 +95,44 @@ require('lazy').setup({
     },
 
     {
-        'nvim-tree/nvim-tree.lua',
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        tag = 'nightly',
+        "kawre/neotab.nvim",
+        event = "InsertEnter",
+        opts = {
+            -- See GitHub for default configs
+        },
+    },
+
+    {
+        "windwp/nvim-autopairs",
         config = function()
-            require('config.nvim_tree')
+            require('config.autopairs')
         end
     },
 
     {
-        'stevearc/oil.nvim',
-        dependencies = {'nvim-tree/nvim-web-devicons'},
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lsp-signature-help',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+            'onsails/lspkind-nvim',
+        },
         config = function()
-            require('config.oil')
+            require('config.nvim_cmp')
+        end
+    },
+
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+        },
+        config = function()
+            require('config.lspconfig')
         end
     },
 
@@ -101,39 +144,33 @@ require('lazy').setup({
     },
 
     {
-        'numToStr/Comment.nvim',
+        'nvim-tree/nvim-tree.lua',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        tag = 'nightly',
         config = function()
-            require('config.comment')
+            require('config.nvim_tree')
         end
     },
 
     {
-        'tpope/vim-fugitive',
+        'nvim-treesitter/nvim-treesitter',
+        build = function()
+            require('nvim-treesitter.install').update({with_sync = true})
+        end,
+        dependencies = {
+            'JoosepAlviste/nvim-ts-context-commentstring',
+            'nvim-treesitter/nvim-treesitter-textobjects',
+        },
         config = function()
-            require('config.vim-fugitive')
+            require('config.treesitter')
         end
     },
 
     {
-        'lewis6991/gitsigns.nvim',
+        'stevearc/oil.nvim',
+        dependencies = {'nvim-tree/nvim-web-devicons'},
         config = function()
-            require('config.gitsigns')
-        end
-    },
-
-    {
-        'sindrets/diffview.nvim',
-        config = function()
-            -- require('config.diffview')
-        end
-    },
-
-    -- Delete buffers without messing up window layout
-    -- Use :Bdelete instead of :bdelete
-    {
-        'famiu/bufdelete.nvim',
-        config = function()
-            require('config.bufdelete')
+            require('config.oil')
         end
     },
 
@@ -159,76 +196,36 @@ require('lazy').setup({
         }
     },
 
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = function()
-            require('nvim-treesitter.install').update({with_sync = true})
-        end,
-        dependencies = {
-            'JoosepAlviste/nvim-ts-context-commentstring',
-            'nvim-treesitter/nvim-treesitter-textobjects',
-        },
-        config = function()
-            require('config.treesitter')
-        end
-    },
-
-    {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
-        },
-        config = function()
-            require('config.lspconfig')
-        end
-    },
-
-    {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-nvim-lsp-signature-help',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-path',
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip',
-            'onsails/lspkind-nvim',
-        },
-        config = function()
-            require('config.nvim_cmp')
-        end
-    },
-
-    {
-        "windwp/nvim-autopairs",
-        config = function()
-            require('config.autopairs')
-        end
-    },
-
-    {
-        "kawre/neotab.nvim",
-        event = "InsertEnter",
-        opts = {
-            -- See GitHub for default configs
-        },
-    },
-
     -- PHP specific
     'jwalton512/vim-blade',
 
+    {
+        'tpope/vim-fugitive',
+        config = function()
+            require('config.vim-fugitive')
+        end
+    },
+
+    {
+        'folke/which-key.nvim',
+        event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 600
+        end,
+        config = function() -- This is the function that runs, AFTER loading
+            require('config.which-key')
+        end,
+    },
+
 --[[
     {
-        -- Getting errors trying to use this
-        'ccaglak/namespace.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim'
-        },
-        config = function()
-            require('config.namespace')
+        'stevearc/aerial.nvim',
+        dependencies = {'nvim-tree/nvim-web-devicons'},
+        config = function() 
+            require('config.aerial')
         end
-    }
+    },
 
     {
         'romgrk/barbar.nvim',
@@ -249,38 +246,6 @@ require('lazy').setup({
             require('config.bufferline')
             -- require('bufferline').setup()
         end
-    },
-
-    {
-        'stevearc/aerial.nvim',
-        dependencies = {'nvim-tree/nvim-web-devicons'},
-        config = function() 
-            require('config.aerial')
-        end
-    },
-
-    {
-        'abecodes/tabout.nvim',
-        lazy = false,
-        config = function()
-            require('config.tabout')
-        end,
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "L3MON4D3/LuaSnip",
-            "hrsh7th/nvim-cmp"
-        },
-        opt = true,  -- Set this to true if the plugin is optional
-        event = 'InsertCharPre', -- Set the event to 'InsertCharPre' for better compatibility
-        priority = 1000,
-    },
-    -- Use this to prevent conflicts between tabout and LuaSnip
-    {
-        "L3MON4D3/LuaSnip",
-        keys = function()
-            -- Disable default tab keybinding in LuaSnip
-            return {}
-        end,
     },
 
     {
@@ -309,6 +274,54 @@ require('lazy').setup({
             -- require('config.lsp')
             -- require('config.lspconfig_old')
             -- require('config.nvim_cmp')
+        end,
+    },
+
+    {
+        -- Getting errors trying to use this
+        'ccaglak/namespace.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        },
+        config = function()
+            require('config.namespace')
+        end
+    }
+
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            "nvim-tree/nvim-web-devicons", -- optional, but recommended
+        },
+        config = function()
+            require('config.neo_tree')
+        end
+    },
+
+    {
+        'abecodes/tabout.nvim',
+        lazy = false,
+        config = function()
+            require('config.tabout')
+        end,
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "L3MON4D3/LuaSnip",
+            "hrsh7th/nvim-cmp"
+        },
+        opt = true,  -- Set this to true if the plugin is optional
+        event = 'InsertCharPre', -- Set the event to 'InsertCharPre' for better compatibility
+        priority = 1000,
+    },
+    -- Use this to prevent conflicts between tabout and LuaSnip
+    {
+        "L3MON4D3/LuaSnip",
+        keys = function()
+            -- Disable default tab keybinding in LuaSnip
+            return {}
         end,
     },
 
